@@ -1,0 +1,38 @@
+# Core dependencies
+torch==2.3.0
+torchvision==0.18.0
+transformers==4.40.0
+datasets==2.18.0
+
+# Scientific computing
+numpy==1.24.3
+scipy==1.11.4
+pandas==2.0.3
+
+# Visualization
+matplotlib==3.7.2
+seaborn==0.12.2
+
+# Jupyter for analysis
+jupyter==1.0.0
+notebook==7.0.6
+ipykernel==6.25.2
+
+# Progress bars and utilities
+tqdm==4.66.1
+pyyaml==6.0.1
+tensorboard==2.15.1
+
+# Testing
+pytest==7.4.3
+pytest-cov==4.1.0
+pytest-mock==3.12.0
+
+# Code quality
+black==23.11.0
+flake8==6.1.0
+mypy==1.7.1
+
+# For report generation
+reportlab==4.0.7
+Pillow==10.1.0

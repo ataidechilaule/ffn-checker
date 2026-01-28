@@ -1,0 +1,7 @@
+ffn_venv/
+venv/
+.env/
+*.pyc
+__pycache__/
+ffn_venv/
+venv/
