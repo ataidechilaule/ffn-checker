@@ -8,7 +8,7 @@ for INF, NaN, and near-INF errors.
 import torch
 import torch.nn as nn
 from typing import Optional, Tuple
-from .eec_abft import EEC_ABFT
+from src.eec_abft import EEC_ABFT
 
 
 class FFNWithProtection(nn.Module):
@@ -118,16 +118,18 @@ class FFNWithProtection(nn.Module):
         # Update checksums through linear transformation
         # For y = xW^T, checksums: y_c = x_c W^T
         with torch.no_grad():
+           
+           
             # Reshape for matrix multiplication
-            batch_size, seq_len, _ = x.shape
-            x_c_flat = x_checksums.reshape(batch_size * seq_len, 2)
+            # batch_size, seq_len, _ = x.shape
+            # x_c_flat = x_checksums.reshape(batch_size * seq_len, 2)
             
             # Compute checksum update (without bias initially)
-            h_prime_checksums_flat = torch.matmul(
-                x_c_flat,
-                torch.ones(2, self.d_ff, device=x.device)  # Simplified
-            )
-            h_prime_checksums = h_prime_checksums_flat.reshape(batch_size, seq_len, self.d_ff, 2)
+            # h_prime_checksums_flat = torch.matmul(
+            #    x_c_flat,
+             #   torch.ones(2, self.d_ff, device=x.device)  # Simplified
+            #)
+            # h_prime_checksums = h_prime_checksums_flat.reshape(batch_size, seq_len, self.d_ff, 2)
             
             # For actual implementation, we'd compute this properly
             # Here's a simplified version
@@ -135,7 +137,7 @@ class FFNWithProtection(nn.Module):
         
         # Apply activation (preserves checksum relationships)
         h = self.activation(h_prime)
-        h_checksums = self.activation(h_prime_checksums[:, :, :, 0:1]).squeeze(-1)
+        #h_checksums = self.activation(h_prime_checksums[:, :, :, 0:1]).squeeze(-1)
         h_checksums = self.abft.compute_checksums(h)  # Recompute for safety
         
         # Detect and correct errors in h

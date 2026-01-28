@@ -6,17 +6,22 @@ Runs a fast validation to ensure FFN-Checker is working correctly.
 Takes about 5-10 minutes.
 
 Usage:
-    python quick_test.py
+    python scripts/quick_test.py
 """
 
 import sys
+import os
 from pathlib import Path
-sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
+
+# Add parent directory to path so we can import src
+parent_dir = Path(__file__).parent.parent
+sys.path.insert(0, str(parent_dir))
 
 import torch
-from fault_injection import FaultInjector
-from eec_abft import EEC_ABFT
-from ffn_checker import FFNWithProtection, TransformerFFN
+# Import from src package directly
+from src.fault_injection import FaultInjector
+from src.eec_abft import EEC_ABFT
+from src.ffn_checker import FFNWithProtection, TransformerFFN
 
 
 def test_fault_injection():
@@ -181,8 +186,7 @@ def main():
         print("Your FFN-Checker installation is working correctly.")
         print("You can now run full experiments:")
         print("  - python scripts/run_vulnerability_analysis.py")
-        print("  - python scripts/run_coverage_test.py")
-        print("  - python scripts/measure_overhead.py")
+        print()
         
     except Exception as e:
         print(f"\n✗ Test failed with error: {e}")
