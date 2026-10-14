@@ -279,12 +279,6 @@ cd ffn-checker
 rm -rf ffn_env
 ```
 
-## Getting Help
-
-- **Issues:** https://github.com/yourusername/ffn-checker/issues
-- **Discussions:** https://github.com/yourusername/ffn-checker/discussions
-- **Email:** your.email@university.edu
-
 ## System Requirements Summary
 
 | Component | Minimum | Recommended |
