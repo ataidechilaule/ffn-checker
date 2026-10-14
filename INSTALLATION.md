@@ -289,12 +289,3 @@ rm -rf ffn_env
 | Python | 3.10 | 3.11 |
 | OS | Linux, macOS, Windows | Linux |
 | GPU | Not required | Not used |
-
-## Installation Time Estimate
-
-- Steps 1-3: 5 minutes
-- Step 4 (PyTorch): 5-10 minutes
-- Step 5 (Dependencies): 5-10 minutes
-- Step 6-7 (Install & Test): 10-15 minutes
-
-**Total: 25-40 minutes**
